@@ -6,4 +6,4 @@ const TaskForm = () => {
   )
 }
 
-export default TaskForm
+export default TaskForm;

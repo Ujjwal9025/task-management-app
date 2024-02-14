@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Navbar from "./components/Navbar";
 import TaskList from "./components/TaskList";
+import "./App.css"
 
 const initialTasks = [
   {
@@ -95,7 +96,7 @@ const App = () => {
   return (
     <div>
       <Navbar />
-      <section>
+      <section className="main-section">
         <TaskList status={added} tasks={tasks} handleStartButton={handleStartButton} handleCompletedButton={handleCompletedButton} handleDoneButton={handleDoneButton}/>
         <TaskList status={started} tasks={tasks} handleStartButton={handleStartButton} handleCompletedButton={handleCompletedButton} handleDoneButton={handleDoneButton}/>
         <TaskList status={completed} tasks={tasks} handleStartButton={handleStartButton} handleCompletedButton={handleCompletedButton} handleDoneButton={handleDoneButton}/>
