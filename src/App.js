@@ -1,7 +1,9 @@
 import React, { useState } from "react";
 import Navbar from "./components/Navbar";
 import TaskList from "./components/TaskList";
+import AddTaskModal from "./components/AddTask/AddTaskModal";
 import "./App.css"
+import { ModalContext } from "./Helper/Context";
 
 const initialTasks = [
   {
@@ -68,6 +70,8 @@ const initialTasks = [
 
 const App = () => {
   const [tasks, setTasks] = useState(initialTasks);
+  const [modal, setModal] = useState(false);
+
   const added = "added";
   const started = "started";
   const completed = "completed";
@@ -94,14 +98,15 @@ const App = () => {
   };
 
   return (
-    <div>
+    <ModalContext.Provider value={{modal, setModal}}>
       <Navbar />
       <section className="main-section">
         <TaskList status={added} tasks={tasks} handleStartButton={handleStartButton} handleCompletedButton={handleCompletedButton} handleDoneButton={handleDoneButton}/>
         <TaskList status={started} tasks={tasks} handleStartButton={handleStartButton} handleCompletedButton={handleCompletedButton} handleDoneButton={handleDoneButton}/>
         <TaskList status={completed} tasks={tasks} handleStartButton={handleStartButton} handleCompletedButton={handleCompletedButton} handleDoneButton={handleDoneButton}/>
       </section>
-    </div>
+      {modal && <AddTaskModal></AddTaskModal>}
+    </ModalContext.Provider>
   );
 };
 

@@ -1,9 +1,11 @@
-import React from "react";
+import React, { useContext } from "react";
 import "../../styles/AddTask.css";
+import { ModalContext } from "../../Helper/Context";
 
 const AddTask = () => {
+  const {modal, setModal} = useContext(ModalContext);
   return (
-    <button type="button" class="button">
+    <button type="button" class="button" onClick={()=>(setModal(!modal))}>
       <span class="button__text">Add Task</span>
       <span class="button__icon">
         <svg

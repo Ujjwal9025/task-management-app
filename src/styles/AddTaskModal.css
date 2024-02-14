@@ -1,0 +1,118 @@
+body.active-modal {
+  overflow-y: hidden;
+}
+
+.btn-modal {
+  padding: 10px 20px;
+  display: block;
+  margin: 100px auto 0;
+  font-size: 18px;
+}
+
+.modal,
+.overlay {
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  position: fixed;
+}
+
+.overlay {
+  background: rgba(49, 49, 49, 0.875);
+}
+
+.modal-content {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  line-height: 1.4;
+  background: #f1f1f1;
+  padding: 14px 28px;
+  border-radius: 3px;
+  max-width: 600px;
+  min-width: 500px;
+
+  h1{
+    margin: 1rem 0;
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+
+    label{
+      display: flex;
+      flex-direction: column;
+      gap: 0.2rem;
+
+      input, textarea, select {
+        font-size: 1rem;
+        padding: 0.3rem;
+        resize:vertical;
+
+        option{
+          padding: 1rem;
+        }
+      }
+    }
+  }
+}
+
+.close-modal {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  padding: 5px 7px;
+}
+
+.submit-btn {
+  text-decoration: none;
+  cursor: pointer;
+  margin: 20px 0;
+  font-size: 1rem;
+}
+
+.ov-btn-slide-left {
+  background: #fff;
+  color: black;
+  border: 2px solid black;
+  padding: 10px 20px;
+  border-radius: 3px;
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+  display: inline-block;
+}
+
+.ov-btn-slide-left:hover {
+  color: #fff;
+}
+
+.ov-btn-slide-left::after {
+  content: "";
+  background: black;
+  position: absolute;
+  z-index: -1;
+  padding: 16px 20px;
+  display: block;
+  top: 0;
+  bottom: 0;
+  left: -100%;
+  right: 100%;
+  -webkit-transition: all 0.35s;
+  transition: all 0.35s;
+}
+
+.ov-btn-slide-left:hover::after {
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  -webkit-transition: all 0.35s;
+  transition: all 0.35s;
+}
